@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .container{
+    width: 1130px;
+  }
+  .left{
+    width: 750px;
+    height: 800px;
+    border: 2px solid maroon;
+    float: left;
+  }
+  .right{
+    width: 350px;
+    height: 500px;
+    border: 2px solid grey;
+    float: right;
+  }
+  .clearfix::after{
+    display: block;
+    content: "";
+    clear: both;
+  }
+  .footer{
+  }
+</style>
+<body>
+<div class="container clearfix"></div>
+<div class="left"></div>
+<div class="right"></div>
+<footer>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim accusantium earum corporis rerum autem dolor nulla consequuntur tempora blanditiis pariatur id quia quis quae, necessitatibus animi error aperiam eius perspiciatis.</p>
+</footer>
+  
+</body>
+</html>
