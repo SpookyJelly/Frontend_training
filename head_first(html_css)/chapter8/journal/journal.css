@@ -1,0 +1,26 @@
+@font-face {
+	font-family: "Emblema One";
+	src: url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.woff"), 
+	     url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.ttf"); 
+}
+
+body{
+  font-family: "Emblema One",굴림,Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+
+h1,h2 {
+  color:#c60;
+  border-bottom: thin dotted #888;
+}
+
+
+h1{
+  font-family: "Emblema One", sans-serif;
+  font-size: 220%;
+}
+
+h2{
+  font-size: 130%;
+  font-weight: normal;
+}
