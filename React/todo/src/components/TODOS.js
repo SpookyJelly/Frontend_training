@@ -1,11 +1,10 @@
 import React from 'react'
 
 function TODOS (props){
-  const TODOS = props.getTODOS()
+  const TODOS = props.getTodos()
 
-  const clickHandler = (params,e) =>{
-    console.log(params)
-    console.log(e)
+  const clickHandler = (id) =>{
+    props.delTodos(id)
   }
 
   // 각 항목마다 이렇게 li 태그 붙이고 싶으면 return 직전에 조치해서 쏴줘야한다.
@@ -19,7 +18,7 @@ function TODOS (props){
           className="delTODO"
           // onClick은 하나의 파라미터만 전달하기 때문에, 2개 이상의 인자를 전달하려면 아래와 같이
           // 화살표 함수로 원래 부르려던 함수를 감싸고, 해당 함수의 호출부에서 인자를 넘긴다.
-          onClick={e => clickHandler(Item.id,e)}
+          onClick={() => clickHandler(Item.id)}
           >X
         </button>
       </li>) : 

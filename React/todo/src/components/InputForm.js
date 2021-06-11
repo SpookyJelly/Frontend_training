@@ -6,7 +6,7 @@ function InputForm(props){
   function onSubmit(e){
     e.preventDefault()
     if(textInput.length <=0){return}
-    props.addTODOS(textInput,props.max_idx)
+    props.addTodo(textInput,props.maxIdx)
     resetInput()
 
   }
