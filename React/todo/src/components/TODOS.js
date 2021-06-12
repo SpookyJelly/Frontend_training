@@ -38,9 +38,8 @@ function TODOS (props){
       <li 
         key={Item.id}
         onClick={(e)=> checkTODO(e,Item)}
-        className= {Item.completed === true ? 'completed': ''}
         >
-        {Item.TODO}
+        <span className= {Item.completed === true ? 'completed': ''}>{Item.TODO}</span>
         <button 
           className="delTODO"
           // onClick은 하나의 파라미터만 전달하기 때문에, 2개 이상의 인자를 전달하려면 아래와 같이

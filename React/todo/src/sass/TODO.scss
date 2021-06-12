@@ -41,6 +41,7 @@ nav {
     padding-right: 1rem;
     margin-left: 1rem;
     background: lighten($themecolor,10%);
+    border:none;
     border-radius: 3px;
     color: white;
     font-weight: 600;
@@ -65,6 +66,7 @@ nav {
   font-size: 1.1rem;
   color : white;
   cursor: pointer;
+  text-decoration: none;
   
   
 }
