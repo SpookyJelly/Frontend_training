@@ -10,9 +10,9 @@ function InputForm(props){
     if(textInput.length <=0){return}
     // props.addTodo(textInput,props.maxIdx)
     const id = uuidv4()
-    props.addTodo(textInput,id)
+    props.addTodo(textInput,id,false)
 
-    const data = {id:id,TODO: textInput}
+    const data = {id:id,TODO: textInput,completed:false}
     // localStorage에 저장.
     handleLocalStorage(data)
     resetInput()

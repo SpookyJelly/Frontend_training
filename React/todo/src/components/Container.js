@@ -16,9 +16,9 @@ function Container (){
   // const [maxIdx, setmaxidx] = useState(0)
 
   
-  function addTodo(newTodo,id){
+  function addTodo(newTodo,id,completed){
     // setmaxidx(id+1)
-    setTodos([...todos, {'TODO' : newTodo, 'id':id}])
+    setTodos([...todos, {'TODO' : newTodo, 'id':id,completed:completed}])
     // setTodos(todos =>[...todos, {'TODO' : newTodo, 'id':id}]) // 이런식으로 비동기적으로 호출해서 setTodos 하는 순간에 todos를 가져올 수 있다
   }
   
@@ -49,7 +49,6 @@ function Container (){
     // filter를 통해서 id !== todoId인 녀석만 골라서 (click한 녀석의 아이디와 다른 녀석들만) 하나의 배열로 반환한다.
     const result = todos.filter(({id: todoId})=>id !==todoId)
     const stringTodo = JSON.stringify(result)
-    console.log(stringTodo)
     localStorage.setItem('TODOS',stringTodo)
 
 
