@@ -1,14 +1,28 @@
 import React, {useState} from 'react'
+import {v4 as uuidv4} from 'uuid'
 
 function InputForm(props){
 
   const [textInput, setInput] = useState('')
+  
   function onSubmit(e){
     e.preventDefault()
     if(textInput.length <=0){return}
-    props.addTodo(textInput,props.maxIdx)
-    resetInput()
+    // props.addTodo(textInput,props.maxIdx)
+    const id = uuidv4()
+    props.addTodo(textInput,id)
 
+    const data = {id:id,TODO: textInput}
+    // localStorage에 저장.
+    handleLocalStorage(data)
+    resetInput()
+  }
+  function handleLocalStorage(data){
+    const TODOS = localStorage.getItem('TODOS')
+    const parseTODOS = JSON.parse(TODOS)
+    const updatedTODOS = parseTODOS.concat(data)
+
+    localStorage.setItem('TODOS',JSON.stringify(updatedTODOS))
   }
 
   function listenInput(e){

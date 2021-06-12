@@ -91,7 +91,8 @@ nav {
   @extend .identicalTODOS;
   min-height: 300px;
   ol{
-
+    min-height: 10rem;
+    min-width: 20rem;
     & li{
       width: 100%;
       display: flex; // 아니 플렉스 찍으면 ol의 마커가 없어지네
