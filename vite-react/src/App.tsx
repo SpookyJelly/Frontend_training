@@ -2,52 +2,12 @@ import { MouseEvent, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 import logo from "./logo.svg";
 import "./App.scss";
-
-// function App() {
-//   const [count, setCount] = useState(0);
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>Hello Vite + React!</p>
-//         <p>
-//           <button type="button" onClick={() => setCount((count) => count + 1)}>
-//             count is: {count}
-//           </button>
-//         </p>
-//         <p>
-//           Edit <code>App.tsx</code> and save to test HMR updates.
-//         </p>
-//         <p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//           {" | "}
-//           <a
-//             className="App-link"
-//             href="https://vitejs.dev/guide/features.html"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Vite Docs
-//           </a>
-//         </p>
-//       </header>
-//     </div>
-//   );
-// }
-
-console.log("key", import.meta.env.VITE_CAT_API_KEY);
+import sample from "./sample.jpg";
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
-  const [normal, setNormal] = useState("");
+  const [normal, setNormal] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleBtn: React.MouseEventHandler<HTMLButtonElement> = async (
     e: MouseEvent
@@ -66,31 +26,34 @@ const App: React.FC = () => {
       },
     };
     try {
+      setIsLoading(true);
       const res = await axios.get(URL, config);
-      console.log(res);
       if (res.data) {
-        const a = res.data.pop();
-        const { url } = a;
-        const image = document.querySelector("#image");
+        const resData = res.data.pop();
+        const { url } = resData;
         setNormal(url);
-        console.log("url", url);
       }
     } catch (e) {
       console.log(e);
     } finally {
       setCount(count + 1);
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="App">
+      <div className="background"></div>
       <h1>My first Vite + React App</h1>
       <div>
-        <p>tester</p>
-        <div>
-          <img id="image" src={normal} alt="" />
+        <h3>Random Cat display</h3>
+        <div className="container">
+          <div className="logo-box">
+            {isLoading && <img src={logo} id="loadingLogo" />}
+          </div>
+          <img id="image" src={normal ?? sample} alt="" className="cat-image" />
         </div>
-        <p>{count}</p>
+        <p>Cat count : {count}</p>
         <button onClick={handleBtn}>Get Random Cat</button>
       </div>
     </div>
